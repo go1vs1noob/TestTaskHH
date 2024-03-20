@@ -1,0 +1,18 @@
+namespace ConsoleApp;
+
+public static class TriangleEvaluator
+{
+    // Might as well check
+    public static bool IsTrianglePossible(double side1, double side2, double side3)
+    {
+        return side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1;
+    }
+    // Hmm... Why do we need that? Maybe we save some time not calculating square root?... If we check each triangle for that we might not save any time.
+    // Anyway, let's implement it since we were asked! Maybe other developer on our team requested it for his method!
+    public static bool IsTriangleRightangled(double side1, double side2, double side3)
+    {
+        double[] sides = { side1, side2, side3 };
+        Array.Sort(sides);
+        return Math.Pow(sides[2], 2) == Math.Pow(sides[1], 2) + Math.Pow(sides[0], 2);
+    }
+}
